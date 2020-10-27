@@ -10,7 +10,7 @@ router.get('/login', (req, res, next) => {
 });
 router.get('/join', (req, res, next) => {
   const pug = {
-    title: "로그인페이지",
+    title: "회원가입페이지",
     scriptFile: '../js/f-join.js'
   }
   res.render('./member/join.pug', pug);

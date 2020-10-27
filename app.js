@@ -5,6 +5,8 @@ const path = require('path');
 
 // 전역변수
 const memberRouter = require('./routes/member');
+const sqlRouter = require('./routes/sql');
+
 
 //서버구동
 app.listen(3000, () => {console.log('http://127.0.0.1:3000')});
@@ -24,3 +26,4 @@ app.use('/', express.static(path.join(__dirname, './public'))); //절대경로�
 app.use('/storage', express.static(path.join(__dirname, './uploads'))); //storage로 들어오면 uploads로 보내줘
 // 해커들이 침입하지 못하게 밖에서는 storage로 보이지만 안에서는 uploads 로 들어간다
 app.use('/member', memberRouter);
+app.use('/sql', sqlRouter);
