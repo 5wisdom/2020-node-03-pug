@@ -2,14 +2,16 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+require('dotenv').config();
 
 // 전역변수
 const memberRouter = require('./routes/member');
 const sqlRouter = require('./routes/sql');
+const sqlRouter2 = require('./routes/sql2');
 
 
 //서버구동
-app.listen(3000, () => {console.log('http://127.0.0.1:3000')});
+app.listen(process.env.PORT, () => {console.log('http://127.0.0.1:3000')});
 
 //PUG등록
 app.set('view engine', 'pug');
@@ -27,3 +29,4 @@ app.use('/storage', express.static(path.join(__dirname, './uploads'))); //storag
 // 해커들이 침입하지 못하게 밖에서는 storage로 보이지만 안에서는 uploads 로 들어간다
 app.use('/member', memberRouter);
 app.use('/sql', sqlRouter);
+app.use('/sql2', sqlRouter2);
